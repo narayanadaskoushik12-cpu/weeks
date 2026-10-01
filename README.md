@@ -7,18 +7,17 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 - [x] **Week 2**: Dynamic Input Buffer (`malloc` / `realloc`)
 - [x] **Week 3**: Command Parser & Tokenization (`argv[]`)
 - [x] **Week 4**: Process Execution (`fork()` & `execvp()`)
-- [ ] **Week 5**: Built-in Commands (`cd`, `help`, `exit`) & Environment Variables
+- [x] **Week 5**: Built-in Commands (`cd`, `help`, `exit`) & Environment Variables
 - [ ] **Week 6**: Signals & Process Control (`SIGINT`, `SIGTSTP`)
 - [ ] **Final Project**: CPU Process Scheduling Simulator Integration (FCFS, SJF, RR, Priority)
 
 ---
 
-## Features (Week 4)
-- Process creation using `fork()`
-- External program execution using `execvp()`
-- Parent-child process synchronization using `waitpid()`
-- Error handling using `perror()`
-- Modular process management module (`include/process.h` and `src/process.c`)
+## Features (Week 5)
+- Built-in command execution in the parent shell process
+- Commands supported: `cd`, `pwd`, `help`, `clear`, `exit`, `env`
+- Environment variable inspection (`HOME`, `USER`, `PATH`) using `getenv()`
+- Modular built-in handler (`include/builtin.h` and `src/builtin.c`)
 
 ---
 
