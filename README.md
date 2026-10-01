@@ -5,7 +5,7 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 ## Progressive Learning Roadmap
 - [x] **Week 1**: REPL Loop, Project Setup & Makefile
 - [x] **Week 2**: Dynamic Input Buffer (`malloc` / `realloc`)
-- [ ] **Week 3**: Command Parser & Tokenization (`argv[]`)
+- [x] **Week 3**: Command Parser & Tokenization (`argv[]`)
 - [ ] **Week 4**: Process Execution (`fork()` & `execvp()`)
 - [ ] **Week 5**: Built-in Commands (`cd`, `help`, `exit`) & Environment Variables
 - [ ] **Week 6**: Signals & Process Control (`SIGINT`, `SIGTSTP`)
@@ -13,11 +13,11 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 
 ---
 
-## Features (Week 2)
-- Interactive Read-Eval-Print Loop (REPL) prompt (`myshell>`)
-- Dynamic input buffer supporting commands of arbitrary length using `malloc()` & `realloc()`
-- Proper memory cleanup using `free()`
-- Modular architecture with `include/input.h` and `src/input.c`
+## Features (Week 3)
+- Command parsing using `strtok()`
+- Dynamic `argv[]` token array construction
+- Modular parser implementation (`include/parser.h` and `src/parser.c`)
+- Prepares command vector for system execution using `execvp()`
 
 ---
 

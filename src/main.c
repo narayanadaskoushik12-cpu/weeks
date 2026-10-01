@@ -3,14 +3,17 @@
 #include <string.h>
 #include "shell.h"
 #include "input.h"
+#include "parser.h"
 
 int main()
 {
     char *line;
+    char **tokens;
+    int i;
 
-    printf("=================================\n");
+    printf("=====================================\n");
     printf("%s Version %s\n", SHELL_NAME, VERSION);
-    printf("=================================\n");
+    printf("=====================================\n");
 
     while (1)
     {
@@ -23,11 +26,18 @@ int main()
             break;
         }
 
-        if (strlen(line) != 0)
+        tokens = parse_line(line);
+
+        if (tokens[0] != NULL)
         {
-            printf("You entered : %s\n", line);
+            printf("\nParsed Tokens\n");
+            for (i = 0; tokens[i] != NULL; i++)
+            {
+                printf("argv[%d] = %s\n", i, tokens[i]);
+            }
         }
 
+        free_tokens(tokens);
         free(line);
     }
 
