@@ -1,6 +1,14 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g -Iinclude
-SRC = src/main.c src/input.c src/parser.c src/process.c src/builtin.c src/signals.c src/scheduler.c
+SRC = \
+src/main.c \
+src/input.c \
+src/parser.c \
+src/process.c \
+src/builtin.c \
+src/signals.c \
+src/scheduler.c \
+src/pipes.c
 TARGET = bin/shellforge
 
 all: $(TARGET)
@@ -8,6 +16,10 @@ all: $(TARGET)
 $(TARGET): $(SRC)
 	mkdir -p bin
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
+
+asan:
+	mkdir -p bin
+	$(CC) $(CFLAGS) -fsanitize=address $(SRC) -o $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)

@@ -9,18 +9,26 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 - [x] **Week 4**: Process Execution (`fork()` & `execvp()`)
 - [x] **Week 5**: Built-in Commands (`cd`, `help`, `exit`) & Environment Variables
 - [x] **Week 6**: Signals & Process Control (`SIGINT`, `SIGTSTP`, `SIGCHLD`)
+- [x] **Week 7**: Anonymous Pipes (`pipe()`, `dup2()`, Inter-Process Communication)
+- [x] **Week 8**: Memory Management, Debugging (Valgrind, GDB & AddressSanitizer)
 - [x] **Final Project**: CPU Process Scheduling Simulator Integration (FCFS, SJF, RR, Priority)
 
 ---
 
-## Features
-- Interactive REPL prompt (`myshell>`)
-- Dynamic input buffer supporting arbitrary length commands (`malloc()` & `realloc()`)
-- Command tokenization (`strtok()`)
-- Process creation and execution (`fork()`, `execvp()`, `waitpid()`)
-- Built-in commands (`cd`, `pwd`, `clear`, `help`, `env`, `exit`)
-- Asynchronous signal handling (`SIGINT`, `SIGCHLD`) & zombie cleanup
-- Integrated CPU Process Scheduling Simulator (`sched create`, `sched list`, `sched run <fcfs|sjf|rr|priority>`, `sched gantt`, `sched stats`)
+## Week 7 Features
+- Anonymous pipes using `pipe()`
+- Input/Output redirection using `dup2()`
+- Two-command pipeline execution (e.g. `cat sample.txt | grep hello`)
+- Inter-Process Communication (IPC) using file descriptors
+
+---
+
+## Week 8 Features
+- Memory leak detection using Valgrind
+- Interactive debugging using GDB (`-g` flag)
+- AddressSanitizer support (`make asan`)
+- Defensive programming practices & pointer validation
+- Leak-free memory management (`0 errors` in Valgrind)
 
 ---
 
@@ -30,20 +38,11 @@ Using Linux / WSL terminal:
 ```bash
 make clean  # Clean old binaries
 make        # Compiles binary to bin/shellforge
+make asan   # Compiles with AddressSanitizer enabled
 make run    # Runs the shell
 ```
 
----
-
-## CPU Scheduler Commands
-```text
-sched create <pid> <burst> <priority> <arrival>   # Create simulated process
-sched list                                       # List all simulated processes
-sched run fcfs                                   # Run First-Come-First-Served
-sched run sjf                                    # Run Shortest Job First
-sched run rr <quantum>                           # Run Round Robin
-sched run priority                               # Run Priority Scheduling
-sched gantt                                      # View Gantt Chart
-sched stats                                      # View Waiting & Turnaround statistics
-sched clear                                      # Clear process queue
+To run Valgrind memory leak check:
+```bash
+valgrind --leak-check=full ./bin/shellforge
 ```

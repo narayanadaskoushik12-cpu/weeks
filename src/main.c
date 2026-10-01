@@ -8,6 +8,7 @@
 #include "builtin.h"
 #include "signals.h"
 #include "scheduler.h"
+#include "pipes.h"
 
 int main()
 {
@@ -35,7 +36,11 @@ int main()
 
         if (tokens[0] != NULL)
         {
-            if (execute_builtin(tokens) == 0)
+            if (is_pipeline(tokens))
+            {
+                execute_pipeline(tokens);
+            }
+            else if (execute_builtin(tokens) == 0)
             {
                 execute(tokens);
             }
