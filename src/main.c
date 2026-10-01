@@ -7,6 +7,7 @@
 #include "process.h"
 #include "builtin.h"
 #include "signals.h"
+#include "scheduler.h"
 
 int main()
 {
@@ -14,6 +15,7 @@ int main()
     char **tokens;
 
     initialize_signals();
+    sched_init();
 
     printf("=====================================\n");
     printf("%s Version %s\n", SHELL_NAME, VERSION);

@@ -3,12 +3,16 @@
 #include <string.h>
 #include <unistd.h>
 #include "builtin.h"
+#include "scheduler.h"
 
 int execute_builtin(char **args)
 {
     char cwd[1024];
 
     if (args[0] == NULL)
+        return 1;
+
+    if (sched_handle(args))
         return 1;
 
     /* exit */
@@ -66,6 +70,7 @@ int execute_builtin(char **args)
         printf("exit\n");
         printf("help\n");
         printf("env\n");
+        printf("sched <create|list|run|gantt|stats|clear>\n");
         return 1;
     }
 
