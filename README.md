@@ -4,7 +4,7 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 
 ## Progressive Learning Roadmap
 - [x] **Week 1**: REPL Loop, Project Setup & Makefile
-- [ ] **Week 2**: Dynamic Input Buffer (malloc / realloc)
+- [x] **Week 2**: Dynamic Input Buffer (`malloc` / `realloc`)
 - [ ] **Week 3**: Command Parser & Tokenization (`argv[]`)
 - [ ] **Week 4**: Process Execution (`fork()` & `execvp()`)
 - [ ] **Week 5**: Built-in Commands (`cd`, `help`, `exit`) & Environment Variables
@@ -13,10 +13,11 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 
 ---
 
-## Features (Week 1)
+## Features (Week 2)
 - Interactive Read-Eval-Print Loop (REPL) prompt (`myshell>`)
-- Makefile-based build system
-- Modular header (`include/shell.h`) and source (`src/main.c`) structure
+- Dynamic input buffer supporting commands of arbitrary length using `malloc()` & `realloc()`
+- Proper memory cleanup using `free()`
+- Modular architecture with `include/input.h` and `src/input.c`
 
 ---
 
@@ -24,7 +25,7 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 
 Using Linux / WSL terminal:
 ```bash
+make clean  # Clean old binaries
 make        # Compiles binary to bin/shellforge
 make run    # Runs the shell
-make clean  # Cleans binary files
 ```
