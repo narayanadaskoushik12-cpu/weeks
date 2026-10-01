@@ -4,12 +4,12 @@
 #include "shell.h"
 #include "input.h"
 #include "parser.h"
+#include "process.h"
 
 int main()
 {
     char *line;
     char **tokens;
-    int i;
 
     printf("=====================================\n");
     printf("%s Version %s\n", SHELL_NAME, VERSION);
@@ -20,7 +20,7 @@ int main()
         printf("myshell> ");
         line = read_line();
 
-        if (strcmp(line, "exit") == 0)
+        if (line == NULL || strcmp(line, "exit") == 0)
         {
             free(line);
             break;
@@ -30,11 +30,7 @@ int main()
 
         if (tokens[0] != NULL)
         {
-            printf("\nParsed Tokens\n");
-            for (i = 0; tokens[i] != NULL; i++)
-            {
-                printf("argv[%d] = %s\n", i, tokens[i]);
-            }
+            execute(tokens);
         }
 
         free_tokens(tokens);
