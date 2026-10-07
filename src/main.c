@@ -9,6 +9,7 @@
 #include "signals.h"
 #include "scheduler.h"
 #include "pipes.h"
+#include "redirect.h"
 
 int main()
 {
@@ -42,7 +43,10 @@ int main()
             }
             else if (execute_builtin(tokens) == 0)
             {
-                execute(tokens);
+                if (execute_redirection(tokens) == 0)
+                {
+                    execute(tokens);
+                }
             }
         }
 

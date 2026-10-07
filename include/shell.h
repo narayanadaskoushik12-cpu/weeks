@@ -2,6 +2,6 @@
 #define SHELL_H
 
 #define SHELL_NAME "ShellForge"
-#define VERSION "8.0 (Valgrind & ASan Verified)"
+#define VERSION "9.0 (I/O Redirection Supported)"
 
 #endif

@@ -11,6 +11,7 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 - [x] **Week 6**: Signals & Process Control (`SIGINT`, `SIGTSTP`, `SIGCHLD`)
 - [x] **Week 7**: Anonymous Pipes (`pipe()`, `dup2()`, Inter-Process Communication)
 - [x] **Week 8**: Memory Management, Debugging (Valgrind, GDB & AddressSanitizer)
+- [x] **Week 9**: File Descriptors and I/O Redirection (`>`, `>>`, `<`, `2>`)
 - [x] **Final Project**: CPU Process Scheduling Simulator Integration (FCFS, SJF, RR, Priority)
 
 ---
@@ -25,10 +26,20 @@ ShellForge is a Unix-like shell developed as part of the Operating Systems and S
 
 ## Week 8 Features
 - Memory leak detection using Valgrind
-- Interactive debugging using GDB (`-g` flag)
+- Debugging using GDB (`-g` flag)
 - AddressSanitizer support (`make asan`)
 - Defensive programming practices & pointer validation
 - Leak-free memory management (`0 errors` in Valgrind)
+
+---
+
+## Week 9 Features
+- File descriptor management
+- Output redirection (`>`)
+- Input redirection (`<`)
+- Append redirection (`>>`)
+- Error redirection (`2>`)
+- File handling using `open()`, `close()`, and `dup2()`
 
 ---
 

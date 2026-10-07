@@ -8,7 +8,8 @@ src/process.c \
 src/builtin.c \
 src/signals.c \
 src/scheduler.c \
-src/pipes.c
+src/pipes.c \
+src/redirect.c
 TARGET = bin/shellforge
 
 all: $(TARGET)
